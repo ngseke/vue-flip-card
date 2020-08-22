@@ -1,0 +1,59 @@
+=wh($w, $h: $w)
+  width: $w
+  height: $h
+
+=py($_)
+  padding-top: $_
+  padding-bottom: $_
+
+=flex-center
+  display: flex
+  justify-content: center
+  align-items: center
+
+=inline-flex-center
+  display: inline-flex
+  justify-content: center
+  align-items: center
+
+=form-group
+  display: flex
+  flex-direction: column
+  margin-bottom: 1rem
+
+=form-label
+  font-size: 3rem
+  font-weight: 500
+  margin-bottom: 1.5rem
+  color: #{var(--text-color)}
+  +media-breakpoint-down(sm)
+    font-size: 2rem
+    margin-bottom: 1rem
+  button
+    +reset-button
+    font-size: 70%
+    background-color: transparent
+    margin: 0 1rem
+
+=reset-button
+  user-select: none
+  border: none
+  outline: none
+  padding: 0
+  cursor: pointer
+  color: #{var(--text-color)}
+  transition: all .3s
+  &:hover
+    opacity: .9
+  &:active
+    transform: scale(.9)
+
+=line-clamp($lines: 1)
+  overflow: hidden
+  display: -webkit-box
+  -webkit-box-orient: vertical
+  -webkit-line-clamp: $lines
+
+=dark
+  @media (prefers-color-scheme: dark)
+    @content

@@ -1,28 +1,28 @@
-<template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+<template lang="pug">
+routerView(:key='$route.fullPath')
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="sass">
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap')
+
+body
+  background-color: #{var(--bg-color)}
+
+  --text-color: #{$black}
+  --bg-color: #{$light-bg}
+  --border-color: #{$light-border}
+  +dark
+    --text-color: #{$white}
+    --bg-color: #{$dark-bg}
+    --border-color: #{$dark-border}
+
+body, button
+  font-family: 'Montserrat', 'Noto Sans TC', sans-serif
 </style>
