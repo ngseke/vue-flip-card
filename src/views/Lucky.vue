@@ -1,6 +1,6 @@
 <template lang="pug">
-.home
-  TitleMenu.menu
+div
+  TitleMenu(ref='menu' v-show='false')
 </template>
 
 <script>
@@ -9,14 +9,8 @@ export default {
   components: {
     TitleMenu,
   },
+  mounted () {
+    this.$refs.menu.lucky()
+  },
 }
 </script>
-
-
-<style lang="sass" scoped>
-.home
-  +flex-center
-  padding: 2rem 1rem
-  .menu
-    max-width: 1280px
-</style>

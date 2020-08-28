@@ -1,5 +1,5 @@
 <template lang="pug">
-.menu.container.p-0
+.menu
   ThemeSelect(ref='themeSelect' v-model='theme')
   SizeSelect(ref='sizeSelect' v-model='size' :length='themeLength')
   .sticky-bottom
@@ -55,9 +55,12 @@ export default {
         query: { size: size, theme },
       })
     },
-    lucky () {
+    pick () {
       this.$refs.themeSelect.pick()
       this.$refs.sizeSelect.pick()
+    },
+    lucky () {
+      this.pick()
       this.submit()
     },
     getThemeLength (theme) {

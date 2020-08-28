@@ -11,6 +11,12 @@ const routes = [
     name: 'Game',
     component: () => import(/* webpackChunkName: "game" */ '@/views/Game.vue')
   },
+  {
+    path: '/lucky',
+    name: 'Lucky',
+    component: () => import('@/views/Lucky.vue')
+  },
+  { path: '/:catchAll(.*)', redirect: '/' },
 ]
 
 const router = createRouter({
