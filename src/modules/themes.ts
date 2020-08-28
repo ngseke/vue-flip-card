@@ -61,7 +61,9 @@ export default [
     ...emojis.slice(350, 359)
   ], '#4ecdc4'), '氣象'),
   new Theme(generate([...emojis.slice(333, 341)], '#f5cb5c'), '月球'),
-  new Theme(generate([...emojis.slice(17, 301)], '#d1b3c4'), '國旗'),
+  new Theme(generate([
+    ...emojis.slice(17, 301).filter((i: string, index: number) => ![17, 39, 60, 68, 78, 85, 105, 112, 124, 129, 141, 153, 177, 190, 192, 207, 209, 215, 237, 255, 263, 271, 274, 276, 279, 283].includes(index))
+  ], '#d1b3c4'), '國旗'),
   new Theme(generate('あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをん'.split('')), 'ひらがな'),
   new Theme(generate('アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン'.split('')), 'カタカナ'),
   new Theme(generate('ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜｦﾝ'.split('')), 'カタカナ (半角)'),
