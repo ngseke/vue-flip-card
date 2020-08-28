@@ -7,7 +7,7 @@
     @click-card='clickCard'
     @set-status='setStatus'
   )
-  Score(:value='score')
+  Score(:value='score' :combo='combo')
     template(#left)
       router-link.back(:to='{ name: `Home` }')
         i.fas.fa-arrow-left
@@ -36,6 +36,7 @@ export default {
       size: null,
       score: null,
       status: null,
+      combo: null,
       //
       matchIcon: null,
       themeColor: null,
@@ -53,6 +54,7 @@ export default {
       this.themeColor = patterns[0]?.color
       this.score = size[0] * size[1]
       this.size = size
+      this.resetCombo()
 
       try {
         this.board = new Board({ size, patterns }, {
@@ -70,11 +72,18 @@ export default {
     },
     match () {
       this.setStatus('match')
-      this.score += 3
+      const { size } = this
+      const value = ~~((size[0] * size[1]) ** .5)
+      const extra = (this.combo++) * ~~((size[0] * size[1]) ** .25)
+      console.log(extra)
+      this.score += (value + extra)
     },
     miss () {
       this.setStatus('miss')
-      this.score -= 1
+      this.resetCombo()
+      const { size } = this
+      const value = ~~((size[0] * size[1]) ** .25)
+      this.score -= value
     },
     setStatus (status = null) {
       this.status = status
@@ -96,6 +105,9 @@ export default {
       ]
 
       this.matchIcon = icons[Math.random() * icons.length >> 0]
+    },
+    resetCombo () {
+      this.combo = 0
     },
   },
   computed: {

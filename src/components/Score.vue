@@ -4,6 +4,8 @@
   .score(:class='scoreClass' )
     .current(:key='value') {{ displayValue }}
     .diff(:key='diff.id' v-if='diff') {{ diffText }}
+    .combo(v-if='displayCombo != null' :key='displayCombo')
+      .value {{ displayCombo }} COMBO
   .tool.right: slot(name='right')
 </template>
 
@@ -11,11 +13,13 @@
 export default {
   props: {
     value: Number,
+    combo: Number,
   },
   data() {
     return {
       diff: null,
       displayValue: this.value,
+      displayCombo: null,
     }
   },
   computed: {
@@ -53,6 +57,11 @@ export default {
       const diff = value - old
       if (diff && old != null) this.diff = { value: diff, id: Symbol() }
     },
+    combo (value) {
+      this.displayCombo = (value - 1 > 0)
+        ? value - 1
+        : null
+    },
   },
 }
 </script>
@@ -83,6 +92,17 @@ $red: #f94144
     transform: translateY(.5rem) scale(0)
     opacity: 0
 
+@keyframes combo
+  0%
+    opacity: 0
+    transform: scaleY(0)
+  30%, 60%
+    opacity: 1
+    transform: none
+  100%
+    opacity: 0
+    transform: scaleY(0)
+
 .score-board
   padding: 2rem 0
   min-width: 20rem
@@ -112,6 +132,17 @@ $red: #f94144
       font-size: 1.2rem
       animation: diff 1s
       animation-fill-mode: both
+    .combo
+      position: absolute
+      bottom: -1rem
+      left: 50%
+      transform: translateX(-50%) skew(-15deg)
+      font-size: .8rem
+      white-space: nowrap
+      .value
+        animation: combo 1s
+        animation-fill-mode: both
+        text-shadow: 0 0 5px white
     &.add
       .current
         animation-name: change-add
