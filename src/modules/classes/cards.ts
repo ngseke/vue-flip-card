@@ -43,4 +43,8 @@ export default class Cards {
   get flippedCard (): Card | undefined {
     return this.list.find(card => card.isFlipped)
   }
+
+  get isAllFlipped () {
+    return this.list.every(card => card.isMatched || card.isStale)
+  }
 }

@@ -66,5 +66,8 @@ export default class Board {
         this.events.miss?.({ by })
       }
     }
+    if (this.cards.isAllFlipped) {
+      this.events.gameOver?.()
+    }
   }
 }

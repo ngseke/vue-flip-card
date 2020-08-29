@@ -24,6 +24,9 @@ import BoardComponent from '@/components/Board.vue'
 import Score from '@/components/Score.vue'
 import sizes from '@/modules/sizes'
 import themes from '@/modules/themes'
+import { result } from '../modules/storage'
+
+const randomstring = require('randomstring')
 
 export default {
   components: {
@@ -47,19 +50,20 @@ export default {
   },
   methods: {
     async start () {
-      const { size: sizeIndex, theme: themeIndex } = this.$route.query
-      const size = sizes[sizeIndex] ?? sizes[2]
-      const patterns = themes[themeIndex]?.patterns
-
-      this.themeColor = patterns[0]?.color
-      this.score = size[0] * size[1]
-      this.size = size
-      this.resetCombo()
-
       try {
+        const { size: sizeIndex, theme: themeIndex } = this.$route.query
+        const size = sizes[sizeIndex] ?? sizes[2]
+        const patterns = themes[themeIndex]?.patterns
+
+        this.themeColor = patterns[0]?.color
+        this.score = size[0] * size[1]
+        this.size = size
+        this.resetCombo()
+
         this.board = new Board({ size, patterns }, {
           match: this.match,
           miss: this.miss,
+          gameOver: this.gameOver,
         })
         await this.$nextTick()
         this.$refs.board.playWave()
@@ -75,7 +79,7 @@ export default {
       const { size } = this
       const value = ~~((size[0] * size[1]) ** .5)
       const extra = (this.combo++) * ~~((size[0] * size[1]) ** .25)
-      console.log(extra)
+
       this.score += (value + extra)
     },
     miss () {
@@ -84,6 +88,18 @@ export default {
       const { size } = this
       const value = ~~((size[0] * size[1]) ** .25)
       this.score -= value
+    },
+    gameOver () {
+      const id = randomstring.generate(9)
+      const data = {
+        score: this.score,
+        query: this.$route.query,
+      }
+
+      result.save(id, data)
+      setTimeout(() => {
+        this.$router.push({ name: 'Result', params: { id } })
+      }, 2000)
     },
     setStatus (status = null) {
       this.status = status
@@ -150,7 +166,7 @@ export default {
   font-size: 1.75rem
   min-width: 3rem
   .match
-    color: #{var(--theme-color)}
+    color: $primary
 
 .fade
   &-enter-from, &-leave-to

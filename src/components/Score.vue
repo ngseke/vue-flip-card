@@ -142,7 +142,6 @@ $red: #f94144
       .value
         animation: combo 1s
         animation-fill-mode: both
-        text-shadow: 0 0 5px white
     &.add
       .current
         animation-name: change-add

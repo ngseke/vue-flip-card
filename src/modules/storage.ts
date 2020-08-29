@@ -13,3 +13,18 @@ export const configs = {
     return localStorage.setItem(configsKey, JSON.stringify(configs))
   },
 }
+
+export const result = {
+  load (id: string) {
+    const data = sessionStorage.getItem(id) || ''
+    try {
+      return JSON.parse(data) ?? null
+    } catch (e) {
+      return null
+    }
+  },
+  save (id: string, result: Object) {
+    return sessionStorage.setItem(id, JSON.stringify(result))
+  },
+}
+

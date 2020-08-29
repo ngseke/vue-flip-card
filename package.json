@@ -17,6 +17,7 @@
     "is-even": "^1.0.0",
     "pug": "^3.0.0",
     "pug-plain-loader": "^1.0.0",
+    "randomstring": "^1.1.5",
     "reset-css": "^5.0.1",
     "sass": "^1.26.10",
     "sass-loader": "^9.0.3",

@@ -7,7 +7,7 @@
     .front(:style='frontStyle')
       span {{ face }}
     .back(:style='backStyle')
-      //- span {{ face }}
+      span {{ face }}
 </template>
 
 <script>
