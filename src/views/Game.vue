@@ -86,7 +86,7 @@ export default {
       this.setStatus('miss')
       this.resetCombo()
       const { size } = this
-      const value = ~~((size[0] * size[1]) ** .25)
+      const value = ~~((size[0] * size[1]) ** .33)
       this.score -= value
     },
     gameOver () {
