@@ -1,5 +1,5 @@
 <template lang="pug">
-routerView(:key='$route.fullPath')
+routerView
 </template>
 
 <script>

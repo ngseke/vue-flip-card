@@ -90,16 +90,15 @@ export default {
       this.score -= value
     },
     gameOver () {
-      const id = randomstring.generate(9)
+      const id = randomstring.generate(4)
       const data = {
         score: this.score,
         query: this.$route.query,
       }
-
       result.save(id, data)
       setTimeout(() => {
         this.$router.push({ name: 'Result', params: { id } })
-      }, 2000)
+      }, 1500)
     },
     setStatus (status = null) {
       this.status = status
