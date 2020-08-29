@@ -72,6 +72,7 @@ $card-height: 5.5rem
 
 .size-select
   +form-group
+  font-family: $font
   label
     +form-label
 

@@ -24,5 +24,5 @@ body
     --border-color: #{$dark-border}
 
 body, button
-  font-family: 'Montserrat', 'Noto Sans TC', sans-serif
+  font-family: $font
 </style>

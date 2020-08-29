@@ -120,6 +120,7 @@ $back-gradient: linear-gradient(45deg, #ccc, lighten(#ccc, 20%))
   cursor: pointer
   transition: all $hover-duration
   font-size: 3rem
+  font-family: $font
 
   .inner
     +wh(100%)

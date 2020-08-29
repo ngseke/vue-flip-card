@@ -109,6 +109,7 @@ $red: #f94144
   display: flex
   align-items: center
   justify-content: space-between
+  font-family: $font
   .tool
     min-width: 5rem
     &.left

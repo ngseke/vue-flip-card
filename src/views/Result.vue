@@ -49,6 +49,7 @@ export default {
   flex-direction: column
   height: 100vh
   color: var(--text-color)
+  font-family: $font
   .label
     font-size: 2rem
     text-transform: uppercase
