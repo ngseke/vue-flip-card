@@ -139,6 +139,7 @@ $back-gradient: linear-gradient(45deg, #ccc, lighten(#ccc, 20%))
   .front, .back
     +flex-center
     +wh(100%)
+    font-family: $card-face-font
     color: #{var(--text-color)}
     overflow: hidden
     border: solid 1px #ccc

@@ -5,8 +5,6 @@ const emojis = require('emojis-list')
 const generate = Pattern.generatePatterns
 
 export default [
-  new Theme(),
-  new Theme(generate('ㄅㄆㄇㄈㄉㄊㄋㄌㄍㄎㄏㄐㄑㄒㄓㄔㄕㄖㄗㄘㄙㄧㄨㄩㄚㄛㄝㄞㄟㄠㄡㄢㄣㄤㄥㄦ'.split('')), '注音符號'),
   new Theme(generate([
     ...emojis.slice(317, 318),
     ...emojis.slice(319, 324),
@@ -18,7 +16,7 @@ export default [
   ], '#00b4d8'), '風景畫框'),
   new Theme(generate([
     ...emojis.slice(1941, 1976),
-  ], '#ef233c'), '交通工具'),
+  ], '#ef233c'), '交通'),
   new Theme(generate([
     ...emojis.slice(1749, 1818),
   ], '#ffd019'), '表情'),
@@ -63,9 +61,22 @@ export default [
   new Theme(generate([...emojis.slice(333, 341)], '#f5cb5c'), '月球'),
   new Theme(generate([
     ...emojis.slice(17, 301).filter((i: string, index: number) => ![17, 39, 60, 68, 78, 85, 105, 112, 124, 129, 141, 153, 177, 190, 192, 207, 209, 215, 237, 255, 263, 271, 274, 276, 279, 283].includes(index))
-  ], '#d1b3c4'), '國旗'),
-  new Theme(generate('あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをん'.split('')), 'ひらがな'),
-  new Theme(generate('アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン'.split('')), 'カタカナ'),
-  new Theme(generate('ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜｦﾝ'.split('')), 'カタカナ (半角)'),
-  new Theme(generate('ㄱㄴㄷㄹㅁㅂㅅㅇㅈㅊㅋㅌㅍㅎㄲㄸㅃㅆㅉ'.split('')), '諺文子音'),
+  ], '#52e3e1'), '國旗'),
+  new Theme(generate([...'⌚📱📲💻⌨🖥🖨🖱🖲🕹🗜💽💾💿📀📼📷📸📹🎥📽🎞📞☎📟📠📺📻🎙🎚🎛🧭⏱⏲⏰🕰⌛⏳📡🔋🔌💡🔦🕯🪔🧯🛢💸💵💴💶💷💰💳💎⚖🧰🔧🔨⚒🛠⛏🔩⚙🧱⛓🧲🔫💣🧨🪓🔪🗡⚔🛡🚬⚰⚱🏺🔮📿🧿💈⚗🔭🔬🕳🩹🩺💊💉🩸🧬🦠🧫🧪🌡🧹🧺🧻🚽🚰🚿🛁🛀🧼🪒🧽🧴🛎🔑🗝🚪🪑🛋🛏🛌🧸🖼🛍🛒🎁🎈🎏🎀🎊🎉🎎🏮🎐🧧✉📩📨📧💌📥📤📦🏷📪📫📬📭📮📯📜📃📄📑🧾📊📈📉🗒🗓📆📅🗑📇🗃🗳🗄📋📁📂🗂🗞📰📓📔📒📕📗📘📙📚📖🔖🧷🔗📎🖇📐📏🧮📌📍✂🖊🖋✒🖌🖍📝✏🔍🔎🔏🔐🔒🔓'], '#ef233c'), '物件'),
+  new Theme(generate(emojis.slice(301, 316), '#f5cb5c'), '日式文字'),
+  new Theme(generate([...'😺😸😹😻😼😽🙀😿😾'], '#f4d35e'), '喵喵臉'),
+  new Theme(generate([...'😈👿👹👺🤡💩👻💀☠️👽👾🤖🎃'], '#bc00dd'), '怪怪臉'),
+  new Theme(generate([...'👋🤚🖐✋🖖👌🤏✌️🤞🤟🤘🤙👈👉👆🖕👇☝️👍👎✊👊🤛🤜👏🙌👐🤲🤝'], '#f9c74f'), '手勢'),
+  new Theme(generate([...'✍💅🤳💪🦾🦵🦿🦶👂🦻👃🧠🦷🦴👀👁👅👄💋🩸'], '#f9c74f'), '身體'),
+  new Theme(generate([...'⚽🏀🏈⚾🥎🎾🏐🏉🥏🎱🪀'], '#eeef20'), '球'),
+  new Theme(generate([...'🏓🏸🏒🏑🥍🏏🥅⛳🪁🏹🎣🤿🥊🥋🎽🛹🛷⛸🥌🎿⛷🏂🪂⚽🏀🏈⚾🥎🎾🏐🏉🥏🎱🪀'], '#ff6000'), '運動'),
+  new Theme(generate([...'🎬🎤🎧🎼🎹🥁🎷🎺🎸🪕🎻🎵']), '音樂'),
+  new Theme(generate([...'⛎♈♉♊♋♌♍♎♏♐♑♒♓'], '#9132AF'), '星座'),
+  new Theme(generate([...'🚷🚯🚳🚱🔞📵🚭'], '#ef233c'), '禁止符號'),
+  new Theme(generate([...'🟥🟧🟨🟩🟦🟪⬛⬜🟫'], '#ef233c'), '色塊'),
+  new Theme(generate([...'ㄅㄆㄇㄈㄉㄊㄋㄌㄍㄎㄏㄐㄑㄒㄓㄔㄕㄖㄗㄘㄙㄧㄨㄩㄚㄛㄝㄞㄟㄠㄡㄢㄣㄤㄥㄦ']), '注音符號'),
+  new Theme(generate([...'あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをん']), 'ひらがな'),
+  new Theme(generate([...'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン']), 'カタカナ'),
+  new Theme(generate([...'ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜｦﾝ']), 'カタカナ (半角)'),
+  new Theme(generate([...'ㄱㄴㄷㄹㅁㅂㅅㅇㅈㅊㅋㅌㅍㅎㄲㄸㅃㅆㅉ']), '諺文子音'),
 ]

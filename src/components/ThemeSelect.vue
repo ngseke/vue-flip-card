@@ -133,7 +133,6 @@ $card-height: 5.5rem
             +wh($card-width * .7, $card-height * .7)
             font-size: 1.2rem
 
-
       .content
         text-align: left
         display: flex
@@ -150,6 +149,7 @@ $card-height: 5.5rem
           .face
             +wh(2rem)
             +inline-flex-center
+            font-family: $card-face-font
             font-size: 1.75rem
             font-weight: 100
             overflow: hidden
