@@ -11,8 +11,9 @@
     </a>
 </p>
 
-<img src="https://i.imgur.com/n33nV7l.png" />
+<img src="https://i.imgur.com/PxKmQWi.png" />
 
+---
 
 ### Project setup
 ```
