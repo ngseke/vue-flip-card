@@ -1,6 +1,6 @@
 <template lang="pug">
 .result(v-if='result')
-  .label Score
+  .label: span Score
   .score {{ result.score }}
   .buttons
     router-link.redo(:to='{ name: `Game`, query: result.query }'): i.fas.fa-redo-alt
@@ -30,6 +30,20 @@ export default {
 </script>
 
 <style lang="sass">
+@keyframes reveal
+  from
+    opacity: 0
+    transform: scale(0)
+  to
+    opacity: 1
+    transform: none
+
+@keyframes fade
+  from
+    opacity: 0
+  to
+    opacity: 1
+
 .result
   +flex-center
   flex-direction: column
@@ -39,14 +53,20 @@ export default {
     font-size: 2rem
     text-transform: uppercase
     margin-bottom: 1rem
-    transform: skewX(-10deg)
+    animation: reveal .4s .2s both
+    span
+      display: inline-block
+      transform: skewX(-10deg)
+
   .score
     font-size: 6rem
     font-weight: bold
     margin-bottom: 2rem
+    animation: reveal .4s .3s both
 
   .buttons
     +flex-center
+    animation: fade 1s .7s both
     button, a
       +flex-center
       +reset-button
