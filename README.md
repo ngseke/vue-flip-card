@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://travis-ci.com/seanyellow/vue-flip-card">
+  <a href="https://seanyellow.github.io/vue-flip-card/">
     <img src="https://i.imgur.com/3p7jPOc.png" width="140px" alt="Vue Flip Card" />
   </a>
 </p>
