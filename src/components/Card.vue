@@ -7,7 +7,7 @@
     .front(:style='frontStyle')
       span {{ face }}
     .back(:style='backStyle')
-      //- span {{ face }}
+      span(v-if='isCheating') {{ face }}
 </template>
 
 <script>
@@ -88,6 +88,9 @@ export default {
     },
     miss () {
       return this.card.isMissed
+    },
+    isCheating () {
+      return Object.keys(this.$route.query).includes('cheat')
     },
   },
   watch: {
