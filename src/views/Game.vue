@@ -78,9 +78,10 @@ export default {
       this.setStatus('match')
       const { size } = this
       const value = ~~((size[0] * size[1]) ** .5)
-      const extra = (this.combo++) * ~~((size[0] * size[1]) ** .25)
+      const extra = (1 + (.5 + this.combo * .5) * (this.combo))
 
-      this.score += (value + extra)
+      this.score += ~~(value * extra)
+      this.combo++
     },
     miss () {
       this.setStatus('miss')
