@@ -1,8 +1,8 @@
 <template lang="pug">
 .score-board
   .tool.left: slot(name='left')
-  .score(:class='scoreClass' )
-    .current(:key='value') {{ displayValue }}
+  .score(:class='scoreClass')
+    .current(:key='value') {{ displayValue?.toFixed(0) }}
     .diff(:key='diff.id' v-if='diff') {{ diffText }}
     .combo(v-if='displayCombo != null' :key='displayCombo')
       .value {{ displayCombo }} COMBO
@@ -10,6 +10,8 @@
 </template>
 
 <script>
+import gsap from 'gsap'
+
 export default {
   props: {
     value: Number,
@@ -50,10 +52,14 @@ export default {
   },
   watch: {
     value (value, old) {
-      setTimeout(
-        () => this.displayValue = value,
-        (old == null) ? 0 : 800
-      )
+      const isInitial = old == null
+      if (isInitial) {
+        this.displayValue = value
+      } else {
+        setTimeout(() => {
+          gsap.to(this.$data, { duration: 0.5, displayValue: value })
+        }, 800)
+      }
       const diff = value - old
       if (diff && old != null) this.diff = { value: diff, id: Symbol() }
     },
