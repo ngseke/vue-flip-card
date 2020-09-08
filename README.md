@@ -13,6 +13,11 @@
 
 <img src="https://i.imgur.com/PxKmQWi.png" />
 
+- Vue 3
+- TypeScript
+- eslint
+- `prefers-color-scheme` CSS media feature
+
 ---
 
 ### Project setup
