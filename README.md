@@ -1,13 +1,13 @@
 <p align="center">
-  <a href="https://seanyellow.github.io/vue-flip-card/">
+  <a href="https://ngseke.github.io/vue-flip-card/">
     <img src="https://i.imgur.com/3p7jPOc.png" width="140px" alt="Vue Flip Card" />
   </a>
 </p>
 <h1 align="center">Vue Flip Card</h1>
 <p align="center">
     <br />
-    <a href="https://travis-ci.com/seanyellow/vue-flip-card">
-        <img src="https://api.travis-ci.com/seanyellow/vue-flip-card.svg?branch=dev" />
+    <a href="https://travis-ci.com/ngseke/vue-flip-card">
+        <img src="https://api.travis-ci.com/ngseke/vue-flip-card.svg?branch=dev" />
     </a>
 </p>
 
